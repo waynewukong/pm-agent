@@ -1,0 +1,13 @@
+services:
+  pm-agent:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      HOST: 0.0.0.0
+    volumes:
+      - ./data:/app/data
+      - ./knowledge_base:/app/knowledge_base
+    restart: unless-stopped
